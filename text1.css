@@ -1,0 +1,19 @@
+#css1
+{
+ color: red;
+ font-size: 30px;
+}
+.content { 
+    height:500px; 
+    text-align: center;
+}
+.p1{
+   /*border:1px dashed blue*/;
+   background-color: #888;
+  }
+.p2{
+	  background-color: #999666;
+   }
+.p3{
+	  background-color: #666999;
+   }

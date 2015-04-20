@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>bootstrap3.2-easypiechart-demo</title>
+<Link rel="stylesheet" type="text/css" href="text1.css" />
+<Link rel="stylesheet" href="bootstrap3.2/css/bootstrap.min.css" />
+<link rel="stylesheet" href="bootstrap3.2/css/bootstrap-theme.min.css" />
+
+<style type="text/css">
+ .percent:after {
+    content: "%";
+    font-size: 0.8em;
+    margin-left: 0.1em;
+}
+.percent {
+    display: inline-block;
+    line-height: 110px;
+    z-index: 2;
+}
+
+.chart canvas {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.chart {
+    display: inline-block;
+    height: 110px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right:61px;
+    position: relative;
+    text-align: center;
+    width: 110px;
+}
+</style>
+</head>
+<body>
+ <div class="row">
+    <!-- 头部 -->
+    <div class="col-sm-12"> 
+		   <div class="bs-example">
+		    <nav class="navbar navbar-default" role="navigation">
+		      <div class="container-fluid">
+		        <div class="navbar-header">		     
+		          <a class="navbar-brand" href="#">Admin Panel</a>
+		        </div>
+		        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		          <ul class="nav navbar-nav">
+		            <li class="active"><a href="#">Dashboard</a></li>
+		            <li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings
+		               <span class="caret"></span>
+		              </a>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="#">A</a></li>
+		                <li><a href="#">B</a></li>
+		                <li class="divider"></li>
+		                <li><a href="#">C</a></li>
+		              </ul>
+		            </li>
+		            <li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Content
+		               <span class="caret"></span>
+		              </a>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="#">D</a></li>
+		                <li><a href="#">E</a></li>
+		                <li class="divider"></li>
+		                <li><a href="#">F</a></li>
+		                <li class="divider"></li>
+		                <li><a href="#">G</a></li>
+		              </ul>
+		            </li>
+		            <li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users
+		               <span class="caret"></span>
+		              </a>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="#">H</a></li>
+		                <li><a href="#">I</a></li>
+		                <li class="divider"></li>
+		                <li><a href="#">J</a></li>
+		              </ul>
+		            </li>		            
+		       </ul>	 
+		       
+		          <ul class="nav navbar-nav pull-right">		           
+		           <li></li>		          
+		          </ul>		    	         
+		          <ul class="nav navbar-nav navbar-right">
+		            <li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		            <span class="glyphicon glyphicon-user"></span> Vincent Gabriel
+		               <span class="caret"></span>
+		              </a>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="#">K</a></li>
+		                <li><a href="#">L</a></li>
+		                <li class="divider"></li>
+		                <li><a href="#">M</a></li>
+		              </ul>
+		            </li>
+		          </ul>
+		        </div>
+		      </div>
+		    </nav>
+		  </div>
+
+      <div class="col-sm-2" >
+        <div style="padding: 20px 0;">
+         <div class="list-group">
+           <a href="#" class="list-group-item active">Dashboard<span class="pull-right glyphicon glyphicon-chevron-right"></span></a>
+           <a href="#" class="list-group-item">Calendar<span class="pull-right glyphicon glyphicon-chevron-right"></span></a>
+           <a href="#" class="list-group-item">Statistices(Charts)<span class="pull-right glyphicon glyphicon-chevron-right"></span></a>
+           <a href="#" class="list-group-item">Forms<span class="pull-right glyphicon glyphicon-chevron-right"></span></a>
+           <a href="#" class="list-group-item">Tables<span class="pull-right glyphicon glyphicon-chevron-right"></span></a>
+           <a href="#" class="list-group-item">Buttons&lcons<span class="pull-right glyphicon glyphicon-chevron-right"></span></a>
+           <a href="#" class="list-group-item">WYSIWYG Editors<span class="pull-right glyphicon glyphicon-chevron-right"></span></a></a>
+           <a href="#" class="list-group-item">UI&Interface<span class="pull-right glyphicon glyphicon-chevron-right"></span></a></a>
+           <a href="#" class="list-group-item">Orders<span class="badge btn-success">731</span></a>
+           <a href="#" class="list-group-item">Invoices<span class="badge btn-success">812</span></a>
+           <a href="#" class="list-group-item">Clients<span class="badge btn-primary">27</span></a>
+           <a href="#" class="list-group-item">Users<span class="badge btn-primary">1,234</span></a>
+           <a href="#" class="list-group-item">Messages<span class="badge btn-primary">2,221</span></a>
+           <a href="#" class="list-group-item">Reports<span class="badge btn-primary">11</span></a>
+           <a href="#" class="list-group-item">Errors<span class="badge btn-danger">83</span></a>
+           <a href="#" class="list-group-item">Logs<span class="badge btn-warning">4,231</span></a>
+         </div>   
+         </div>
+      </div>
+      <div class="col-sm-10">
+       <div class="alert  alert-success alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert">
+		    <span aria-hidden="true">&times;</span>
+		    <span class="sr-only">Close</span>
+		 </button>
+		  <strong>Success</strong> <p>The operation completed successfuly</p>
+	  </div>
+
+	    <ol class="breadcrumb">
+		  <li><a href="#">Dashboard</a></li>
+		  <li><a href="#">Settings</a></li>
+		  <li class="active">Tools</li>
+		</ol>
+		
+		<div class="panel panel-default">
+		  <div class="panel-heading">Statistics
+		    <span class="badge btn-warning pull-right">View More</span>
+		  </div>
+		  <div class="panel-body">
+		    <span id="chart1" class="chart" data-percent="86">
+			 <span class="percent"></span>			 
+		    </span>	  
+		    <span id="chart2" class="chart"  data-percent="46">
+			 <span class="percent"></span>
+			 <span></span>
+		    </span>	 
+		    <span id="chart3" class="chart" data-percent="50">
+			 <span class="percent"></span>
+			 <span ></span>
+		    </span>	 		    
+		    <span id="chart4" class="chart" data-percent="70">
+			 <span class="percent"></span>
+			 <span ></span>
+		    </span>	  			      
+		    <span id="chart" class="chart" data-percent="70">
+			 <span class="percent">70</span>
+			 <span ></span>
+		    </span>	 
+
+		     <span id="chart5" class="chart" data-percent="40">
+			 <span class="percent"></span>			 
+			 
+		    </span>	 	
+		   </div>			    
+		  		 
+		</div>
+		
+		<div class="col-sm-6">
+		<div class="panel panel-default ">
+		  <div class="panel-heading">Users
+		    <span class="badge btn-primary pull-right">1,234</span>
+		  </div>
+		  <div class="panel-body">
+		    <table class="table  table-striped">
+			  <tr> 
+			    <th>#</th>
+			    <th>First Namd</th>
+			    <th>Last Name</th>
+			    <th>Username</th>
+			  </tr>
+			  <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			   <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			   <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			</table>
+		  </div>
+		</div>
+       </div> 
+       
+       	<div class="col-sm-6">
+		<div class="panel panel-default ">
+		  <div class="panel-heading">Orders
+		    <span class="badge btn-primary pull-right">752</span>
+		  </div>
+		  <div class="panel-body">
+		    <table class="table  table-striped">
+			  <tr> 
+			    <th>#</th>
+			    <th>First Namd</th>
+			    <th>Last Name</th>
+			    <th>Username</th>
+			  </tr>
+			  <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			   <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			   <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			</table>
+		  </div>
+		</div>
+       </div> 
+       
+       <div class="col-sm-6">
+		<div class="panel panel-default ">
+		  <div class="panel-heading">Clients
+		    <span class="badge btn-primary pull-right">17</span>
+		  </div>
+		  <div class="panel-body">
+		    <table class="table  table-striped">
+			  <tr> 
+			    <th>#</th>
+			    <th>First Namd</th>
+			    <th>Last Name</th>
+			    <th>Username</th>
+			  </tr>
+			  <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			   <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			   <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			</table>
+		  </div>
+		</div>
+       </div> 
+       
+       <div class="col-sm-6">
+		<div class="panel panel-default ">
+		  <div class="panel-heading">Invoices
+		    <span class="badge btn-primary pull-right">812</span>
+		  </div>
+		  <div class="panel-body">
+		    <table class="table  table-striped">
+			  <tr> 
+			    <th>#</th>
+			    <th>First Namd</th>
+			    <th>Last Name</th>
+			    <th>Username</th>
+			  </tr>
+			  <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			   <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			   <tr>
+			    <td>1</td>
+			    <td>Mark</td>
+			    <td>Otto</td>
+			    <td>@mdo</td>
+			  </tr>
+			</table>
+		  </div>
+		</div>
+       </div>  
+       
+      <div class="col-sm-12">
+		<div class="panel panel-default ">
+		  <div class="panel-heading">Gallery
+		    <span class="badge btn-primary pull-right">1,462</span>
+		  </div>
+		  <div class="panel-body">
+		   <div class="col-sm-3">
+		    <img src="img/5.jpg" class="img-thumbnail" alt="1">		  
+		   </div>
+		   <div class="col-sm-3">
+		    <img src="img/6.jpg" class="img-thumbnail" alt="1">		  
+		   </div>
+		   <div class="col-sm-3">
+		    <img src="img/5.jpg" class="img-thumbnail" alt="1">		  
+		   </div>
+		   <div class="col-sm-3">
+		    <img src="img/5.jpg" class="img-thumbnail" alt="1">		  
+		   </div>
+		   
+		   <div class="col-sm-3">
+		    <img src="img/6.jpg" class="img-thumbnail" alt="1">		  
+		   </div>
+		   <div class="col-sm-3">
+		    <img src="img/5.jpg" class="img-thumbnail" alt="1">		  
+		   </div>
+		   <div class="col-sm-3">
+		    <img src="img/5.jpg" class="img-thumbnail" alt="1">		  
+		   </div>
+		   <div class="col-sm-3">
+		    <img src="img/6.jpg" class="img-thumbnail" alt="1">		  
+		   </div>
+		
+		  </div>
+		</div>
+     </div>
+              
+     </div>
+     
+  </div>   
+  <div class="col-sm-12">
+    <hr><span>@Vincent Gabriel 2014</span>
+  </div>  
+ </div>   
+ <br>
+ <script src="bootstrap3.2/js/jquery.js"></script>
+ <script src="bootstrap3.2/js/bootstrap.min.js"></script>
+ <script src="easy-pie/dist/jquery.easypiechart.min.js"></script> 
+ <script>
+	$(function() {	
+	   $('#chart1').easyPieChart({
+			easing: 'easeOutBounce',			
+			onStep: function(from, to, percent) {
+				$(this.el).find('.percent').text(Math.round(percent));
+			}
+		});
+        $('#chart2').easyPieChart({
+			easing: 'easeOutBounce',
+			trackColor: '#EEEEE0',
+			barColor:'#FF4500',
+			//scaleColor:'#FFB5C5',
+			lineCap:'butt',
+			lineWidth:'4',
+			size:'110',
+			onStep: function(from, to, percent) {
+				$(this.el).find('.percent').text(Math.round(percent));
+			}
+		});
+	    $('#chart3').easyPieChart({
+		  easing: 'easeOutBounce',
+		trackColor: '#FFF5EE',
+			barColor:'#FF3030',
+			scaleColor:'#FFB5C5',
+			lineCap:'butt',
+			lineWidth:'8',
+			size:'110',
+		  onStep: function(from, to, percent) {
+			$(this.el).find('.percent').text(Math.round(percent));
+		   }
+	    });
+	    $('#chart4').easyPieChart({
+		  easing: 'easeOutBounce',
+		  trackColor: '#888',
+		  onStep: function(from, to, percent) {
+			$(this.el).find('.percent').text(Math.round(percent));
+		   }
+	    });
+	    $('#chart5').easyPieChart({
+		  easing: 'easeOutBounce',
+		  	easing: 'easeOutBounce',
+			trackColor: '#EEEEE0',
+			barColor:'pink',
+			scaleColor:'#FFB5C5',
+			lineCap:'butt',
+			lineWidth:'8',//改变圈的宽度
+			size:'110',//改变整个圈的大小,默认大小为110
+			//animate:'false',
+            //onStart:'$.noop',
+            //onStop:'$.noop',
+            //onStep:'$.noop',
+		  onStep: function(from, to, percent) {
+			$(this.el).find('.percent').text(Math.round(percent));
+		   }
+	    });      
+	
+
+	var chart = window.chart = $('.chart').data('easyPieChart');
+		$('.js_update').on('click', function() {
+			chart.update(Math.random()*200-100);
+		});
+	});
+   var initPieChart = function() {
+    $('.percentage').easyPieChart({
+        animate: 1000
+    });
+    $('#chart').easyPieChart({
+        barColor: function(percent) {
+            percent /= 100;
+            return "rgb(" + Math.round(255 * (1-percent)) + ", " + Math.round(255 * percent) + ", 0)";
+        },
+
+        trackColor: '#666',
+        scaleColor: false,
+        lineCap: 'butt',
+        lineWidth: 15,     
+        animate: 1000
+    });
+
+
+};
+
+initPieChart();
+ </script>
+</body>
